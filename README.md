@@ -1,1 +1,1 @@
-# RNA-seq-SNAp-calling
+# RNA-seq-SNP-calling
