@@ -36,6 +36,7 @@ wget [GATK Best Practices](https://github.com/broadinstitute/gatk/releases/downl
     
 `java -jar gatk-package-4.2.3.0-local.jar`
 
+# :file_folder: Downloading required data
 
 java -jar picard.jar BuildBamIndex I=${sample}_1.fastq.gzAligned.sortedByCoord.out.bam 
 
