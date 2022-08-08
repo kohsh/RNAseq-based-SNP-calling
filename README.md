@@ -11,8 +11,11 @@
 * bcftools installation
 
 wget [bcftools](https://github.com/samtools/bcftools/releases/download/1.9/bcftools-1.9.tar.bz2)
+
 `tar -vxjf bcftools-1.9.tar.bz2`
+
 `cd bcftools-1.9`
+
 `make`
 
 * gatk-4.2.3.0 installation
