@@ -52,6 +52,8 @@ wget [Homo_sapiens_assembly38.dict](https://console.cloud.google.com/storage/bro
 
 wget [Homo_sapiens_assembly38.fasta](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.fasta?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
 
+# :mag_right: SNP calling from RNA-seq data
+
 ### Index bam files
 
 `java -jar picard.jar BuildBamIndex I=${sample}_1.fastq.gzAligned.sortedByCoord.out.bam`
