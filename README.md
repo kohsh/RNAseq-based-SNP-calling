@@ -54,39 +54,43 @@ wget [Homo_sapiens_assembly38.fasta](https://console.cloud.google.com/storage/br
 
 # :mag_right: SNP calling from RNA-seq data
 
-### 1. [BuildBamIndex-picard](https://gatk.broadinstitute.org/hc/en-us/articles/360037057932-BuildBamIndex-Picard-)
+## Preprocessing measures using picard-tools
+
+### 1a. [BuildBamIndex-picard](https://gatk.broadinstitute.org/hc/en-us/articles/360037057932-BuildBamIndex-Picard-)
 
 `java -jar picard.jar BuildBamIndex I=${sample}.fastq.gzAligned.sortedByCoord.out.bam`
 
-### 2. [ReorderSam-picard](https://gatk.broadinstitute.org/hc/en-us/articles/360037426651-ReorderSam-Picard-)
+### 2a. [ReorderSam-picard](https://gatk.broadinstitute.org/hc/en-us/articles/360037426651-ReorderSam-Picard-)
 
 `java -jar picard.jar ReorderSam INPUT=${sample}.fastq.gzAligned.sortedByCoord.out.bam OUTPUT=${sample}_reordered.bam SEQUENCE_DICTIONARY=../References/GRCh38.primary_assembly.genome.dict CREATE_INDEX=true`
 
-### 3. [AddOrReplaceReadGroups-picard](https://gatk.broadinstitute.org/hc/en-us/articles/360037226472-AddOrReplaceReadGroups-Picard-)
+### 3a. [AddOrReplaceReadGroups-picard](https://gatk.broadinstitute.org/hc/en-us/articles/360037226472-AddOrReplaceReadGroups-Picard-)
 
 `java -jar picard.jar AddOrReplaceReadGroups INPUT=${sample}_reordered.bam OUTPUT=${sample}_AddReplaceGroup.bam SORT_ORDER=coordinate CREATE_INDEX=true RGID=${sample} RGSM=${sample} RGLB=Fragment RGPL=platform RGCN=center RGPU=${sample}`
 
-### 4. [MarkDuplicates-picard](https://gatk.broadinstitute.org/hc/en-us/articles/360037052812-MarkDuplicates-Picard-#:~:text=MarkDuplicates%20(Picard)%20Follow,e.g.%20library%20construction%20using%20PCR.)
+### 4a. [MarkDuplicates-picard](https://gatk.broadinstitute.org/hc/en-us/articles/360037052812-MarkDuplicates-Picard-#:~:text=MarkDuplicates%20(Picard)%20Follow,e.g.%20library%20construction%20using%20PCR.)
 
 `java -Xmx32G -jar picard.jar MarkDuplicates INPUT=${sample}_AddReplaceGroup.bam OUTPUT=${sample}_markduplicate.bam CREATE_INDEX=true VALIDATION_STRINGENCY=SILENT METRICS_FILE=${sample}.metrics`
 
-### [SplitNCigarReads-GATK](https://gatk.broadinstitute.org/hc/en-us/articles/360036858811-SplitNCigarReads)
+## Variant calling steps by applying the standard criteria of GATK RNA pipeline
+
+### 1b. [SplitNCigarReads-GATK](https://gatk.broadinstitute.org/hc/en-us/articles/360036858811-SplitNCigarReads)
 
 `gatk-4.2.3.0/gatk SplitNCigarReads -R ../References/GRCh38.primary_assembly.genome.fa -I ${sample}_markduplicate.bam -O ${sample}_SplitNCigar.bam`
 
-### [BaseRecalibrator-GATK](https://gatk.broadinstitute.org/hc/en-us/articles/360036898312-BaseRecalibrator)
+### 2b. [BaseRecalibrator-GATK](https://gatk.broadinstitute.org/hc/en-us/articles/360036898312-BaseRecalibrator)
 
 `gatk-4.2.3.0/gatk BaseRecalibrator -R ../References/GRCh38.primary_assembly.genome.fa -I ${sample}_SplitNCigar.bam --use-original-qualities -O ${sample}_recalibration_report --known-sites ../References/Homo_sapiens_assembly38.dbsnp138.vcf --known-sites ../References/Homo_sapiens_assembly38.known_indels.vcf.gz`
 
-### [ApplyBQSR-GATK](https://gatk.broadinstitute.org/hc/en-us/articles/360037055712-ApplyBQSR)
+### 3b. [ApplyBQSR-GATK](https://gatk.broadinstitute.org/hc/en-us/articles/360037055712-ApplyBQSR)
 
 `gatk-4.2.3.0/gatk ApplyBQSR --add-output-sam-program-record -R ../References/GRCh38.primary_assembly.genome.fa -I ${sample}_SplitNCigar.bam --use-original-qualities -O ${sample}_BQSR.bam --bqsr-recal-file ${sample}_recalibration_report`
 
-### [SplitIntervals-GATK](https://gatk.broadinstitute.org/hc/en-us/articles/360036899592-SplitIntervals)
+### 4b. [SplitIntervals-GATK](https://gatk.broadinstitute.org/hc/en-us/articles/360036899592-SplitIntervals)
 
 `gatk-4.2.3.0/gatk SplitIntervals -R ../References/GRCh38.primary_assembly.genome.fa -L ../References/wgs_calling_regions.hg38.interval_list -scatter 10  -O ./interval-files --subdivision-mode BALANCING_WITHOUT_INTERVAL_SUBDIVISION_WITH_OVERFLOW --java-options '-DGATK_STACKTRACE_ON_USER_EXCEPTION=true'`
 
-### [HaplotypeCaller-GATK](https://gatk.broadinstitute.org/hc/en-us/articles/360037225632-HaplotypeCaller)
+### 5b. [HaplotypeCaller-GATK](https://gatk.broadinstitute.org/hc/en-us/articles/360037225632-HaplotypeCaller)
 
 `gatk-4.2.3.0/gatk HaplotypeCaller -R ../References/GRCh38.primary_assembly.genome.fa -I ${sample}_BQSR.bam -L 0000-scattered.interval_list -L 0001 scattered.interval_list -L 0002-scattered.interval_list -L 0003-scattered.interval_list -L 0004-scattered.interval_list -L 0005-scattered.interval_list -L 0006 scattered.interval_list -L 0007-scattered.interval_list -L 0008-scattered.interval_list -L 0009-scattered.interval_list -O ${sample}.vcf.gz -dont-use-soft-clipped-bases -stand-call-conf 20 --dbsnp ../References/Homo_sapiens_assembly38.dbsnp138.vcf --java-options '-DGATK_STACKTRACE_ON_USER_EXCEPTION=true'`
  
