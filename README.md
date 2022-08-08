@@ -9,13 +9,11 @@
 
 ## Installatoion of associated packages:
 
-
 * picard installation
 
 wget [picard.jar](https://github.com/broadinstitute/picard/releases/download/2.27.4/picard.jar)
 
 `java -jar /path/to/picard.jar -h`
-
 
 * bcftools installation
 
@@ -26,7 +24,6 @@ wget [bcftools](https://github.com/samtools/bcftools/releases/download/1.9/bcfto
 `cd bcftools-1.9`
 
 `make`
-
 
 * gatk-4.2.3.0 installation
 
