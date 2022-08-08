@@ -58,15 +58,15 @@ wget [Homo_sapiens_assembly38.fasta](https://console.cloud.google.com/storage/br
 
 `java -jar picard.jar BuildBamIndex I=${sample}_1.fastq.gzAligned.sortedByCoord.out.bam`
 
-### Reordersam
+### [ReorderSam-picard](https://gatk.broadinstitute.org/hc/en-us/articles/360037426651-ReorderSam-Picard-)
 
 `java -jar picard.jar ReorderSam INPUT=${sample}.fastq.gzAligned.sortedByCoord.out.bam OUTPUT=${sample}_reordered.bam SEQUENCE_DICTIONARY=/media/boris/kosar/Analysis/STAR/References/GRCh38.primary_assembly.genome.dict CREATE_INDEX=true`
 
-### AddOrReplaceReadGroups
+### [AddOrReplaceReadGroups-picard](https://gatk.broadinstitute.org/hc/en-us/articles/360037226472-AddOrReplaceReadGroups-Picard-)
 
 `java -jar picard.jar AddOrReplaceReadGroups INPUT=${sample}_reordered.bam OUTPUT=${sample}_AddReplaceGroup.bam SORT_ORDER=coordinate CREATE_INDEX=true RGID=${sample} RGSM=${sample} RGLB=Fragment RGPL=platform RGCN=center RGPU=${sample}`
 
-### MarkDuplicates
+### [MarkDuplicates-picard](https://gatk.broadinstitute.org/hc/en-us/articles/360037052812-MarkDuplicates-Picard-#:~:text=MarkDuplicates%20(Picard)%20Follow,e.g.%20library%20construction%20using%20PCR.)
 
 `java -Xmx32G -jar picard.jar MarkDuplicates INPUT=${sample}_AddReplaceGroup.bam OUTPUT=${sample}_markduplicate.bam CREATE_INDEX=true VALIDATION_STRINGENCY=SILENT METRICS_FILE=${sample}.metrics`
 
