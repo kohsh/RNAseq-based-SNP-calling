@@ -54,7 +54,7 @@ wget [Homo_sapiens_assembly38.fasta](https://console.cloud.google.com/storage/br
 
 # :mag_right: SNP calling from RNA-seq data
 
-## :wrench: Preprocessing measures using picard-tools
+## * Preprocessing measures using picard-tools
 
 ### 1a. [BuildBamIndex-picard](https://gatk.broadinstitute.org/hc/en-us/articles/360037057932-BuildBamIndex-Picard-)
 
@@ -72,7 +72,7 @@ wget [Homo_sapiens_assembly38.fasta](https://console.cloud.google.com/storage/br
 
 `java -Xmx32G -jar picard.jar MarkDuplicates INPUT=${sample}_AddReplaceGroup.bam OUTPUT=${sample}_markduplicate.bam CREATE_INDEX=true VALIDATION_STRINGENCY=SILENT METRICS_FILE=${sample}.metrics`
 
-## :wrench: Variant calling steps by applying the standard criteria of GATK RNA pipeline
+## * Variant calling steps by applying the standard criteria of GATK RNA pipeline
 
 ### 1b. [SplitNCigarReads-GATK](https://gatk.broadinstitute.org/hc/en-us/articles/360036858811-SplitNCigarReads)
 
