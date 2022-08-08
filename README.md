@@ -56,11 +56,11 @@ wget [Homo_sapiens_assembly38.fasta](https://console.cloud.google.com/storage/br
 
 ### 1. [BuildBamIndex-picard](https://gatk.broadinstitute.org/hc/en-us/articles/360037057932-BuildBamIndex-Picard-)
 
-`java -jar picard.jar BuildBamIndex I=${sample}_1.fastq.gzAligned.sortedByCoord.out.bam`
+`java -jar picard.jar BuildBamIndex I=${sample}.fastq.gzAligned.sortedByCoord.out.bam`
 
 ### 2. [ReorderSam-picard](https://gatk.broadinstitute.org/hc/en-us/articles/360037426651-ReorderSam-Picard-)
 
-`java -jar picard.jar ReorderSam INPUT=${sample}.fastq.gzAligned.sortedByCoord.out.bam OUTPUT=${sample}_reordered.bam SEQUENCE_DICTIONARY=/media/boris/kosar/Analysis/STAR/References/GRCh38.primary_assembly.genome.dict CREATE_INDEX=true`
+`java -jar picard.jar ReorderSam INPUT=${sample}.fastq.gzAligned.sortedByCoord.out.bam OUTPUT=${sample}_reordered.bam SEQUENCE_DICTIONARY=../References/GRCh38.primary_assembly.genome.dict CREATE_INDEX=true`
 
 ### 3. [AddOrReplaceReadGroups-picard](https://gatk.broadinstitute.org/hc/en-us/articles/360037226472-AddOrReplaceReadGroups-Picard-)
 
@@ -72,7 +72,7 @@ wget [Homo_sapiens_assembly38.fasta](https://console.cloud.google.com/storage/br
 
 ### SplitNCigarReads
 
-`gatk-4.2.3.0/gatk SplitNCigarReads -R /media/boris/kosar/Analysis/STAR/References/GRCh38.primary_assembly.genome.fa -I ${sample}_markduplicate.bam -O ${sample}_SplitNCigar.bam`
+`gatk-4.2.3.0/gatk SplitNCigarReads -R ../References/GRCh38.primary_assembly.genome.fa -I ${sample}_markduplicate.bam -O ${sample}_SplitNCigar.bam`
 
 ### BaseRecalibrator
 
