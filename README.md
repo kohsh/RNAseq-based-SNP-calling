@@ -67,10 +67,7 @@ wget [Homo_sapiens_assembly38.fasta](https://console.cloud.google.com/storage/br
 
 * Mapping RNA-seq data to the reference using STAR 
 
-Install JAVA, and Cromwell
-Build Docker images for Trimmomatic, fastQC and Kallisto
-For running Kallisto.wdl you also need to build an index from a FASTA formatted file of target sequences using Kallisto and name it under gencode.idx.
-Run the workflow directly by executing the following commands on your terminal:
+In this resaerch, the STAR pipeline was written in [Workflow Description Language (WDL)](https://github.com/openwdl/wdl). Scripts are prowided for those who are ineterested. 
 
 * Preprocessing measures using picard-tools
 
