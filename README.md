@@ -1,4 +1,4 @@
-# :black_nib: RNA-seq-SNP-calling
+# :black_nib: RNAseq-SNP-calling
 
 # ⚙️Technologies & Tools
 
