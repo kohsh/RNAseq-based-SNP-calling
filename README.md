@@ -54,7 +54,7 @@ wget [Homo_sapiens_assembly38.fasta](https://console.cloud.google.com/storage/br
 
 # :mag_right: SNP calling from RNA-seq data
 
-### Index bam files
+### [BuildBamIndex](https://gatk.broadinstitute.org/hc/en-us/articles/360037057932-BuildBamIndex-Picard-)
 
 `java -jar picard.jar BuildBamIndex I=${sample}_1.fastq.gzAligned.sortedByCoord.out.bam`
 
