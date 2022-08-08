@@ -1,0 +1,10 @@
+{
+  "STAR.inputSampleFiles": "InputSampleFile1.txt",
+  "STAR.Align.index": "path/to/index/files",
+  "STAR.Align.zcat": "zcat",
+  "STAR.Align.GeneCounts": "GeneCounts",
+  "STAR.Align.Basic": "Basic",
+  "STAR.Align.SortedByCoordinate": "SortedByCoordinate",
+  "STAR.Align.BAM": "BAM"
+}
+
