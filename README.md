@@ -8,6 +8,13 @@
 
 ## Installatoion of associated packages:
 
+* picard installation
+
+wget [picard.jar](https://github.com/broadinstitute/picard/archive/refs/tags/2.27.4.tar.gz)
+
+`java -jar /path/to/picard.jar -h`
+
+
 * bcftools installation
 
 wget [bcftools](https://github.com/samtools/bcftools/releases/download/1.9/bcftools-1.9.tar.bz2)
@@ -19,6 +26,8 @@ wget [bcftools](https://github.com/samtools/bcftools/releases/download/1.9/bcfto
 `make`
 
 * gatk-4.2.3.0 installation
+
+wget [GATK Best Practices](https://github.com/broadinstitute/gatk/releases/download/4.2.6.1/gatk-4.2.6.1.zip)
 
 
 java -jar picard.jar BuildBamIndex I=${sample}_1.fastq.gzAligned.sortedByCoord.out.bam 
