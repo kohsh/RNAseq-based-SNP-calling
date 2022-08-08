@@ -112,15 +112,11 @@ Run the workflow directly by executing the following commands on your terminal:
 
 `gatk-4.2.3.0/gatk HaplotypeCaller -R ../References/GRCh38.primary_assembly.genome.fa -I ${sample}_BQSR.bam -L 0000-scattered.interval_list -L 0001 scattered.interval_list -L 0002-scattered.interval_list -L 0003-scattered.interval_list -L 0004-scattered.interval_list -L 0005-scattered.interval_list -L 0006 scattered.interval_list -L 0007-scattered.interval_list -L 0008-scattered.interval_list -L 0009-scattered.interval_list -O ${sample}.vcf.gz -dont-use-soft-clipped-bases -stand-call-conf 20 --dbsnp ../References/Homo_sapiens_assembly38.dbsnp138.vcf --java-options '-DGATK_STACKTRACE_ON_USER_EXCEPTION=true'`
  
- ### Merge VCFs
+ ### 6b. Merge VCFs & Indexing
 
-`bcftools-1.9/bcftools merge -l AD-PD-WB.txt -Oz -o AD-PD-WB.vcf.gz`
+`bcftools-1.9/bcftools merge -l list-of-selected-VCFs.txt -Oz -o selected.vcf.gz` & `tabix -p vcf selected.vcf.gz`
 
-### Index 
-
-`tabix -p vcf .vcf.gz`
-
-### VariantFilteration
+### 7b. [VariantFilteration-GATK](https://gatk.broadinstitute.org/hc/en-us/articles/360037434691-VariantFiltration)
 
 `gatk-4.2.3.0/gatk VariantFiltration -R ../References/GRCh38.primary_assembly.genome.fa -V AD-Ct-BA9.vcf.gz --window 35 --cluster 3 --filter-name "FS" --filter "FS > 30.0" --filter-name "QD" --filter "QD < 2.0" -O AD-Ct-BA9_VF.vcf.gz`
 
