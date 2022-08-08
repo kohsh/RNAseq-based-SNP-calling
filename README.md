@@ -9,6 +9,16 @@
 
 ## Installatoion of associated packages:
 
+* STAR installation
+
+wget [star-2.7.9](https://github.com/alexdobin/STAR/archive/2.7.9a.tar.gz)
+
+`tar -xzf 2.7.9a.tar.gz`
+
+`cd STAR-2.7.9a/source`
+
+`make STAR`
+
 * picard installation
 
 wget [picard.jar](https://github.com/broadinstitute/picard/releases/download/2.27.4/picard.jar)
@@ -36,7 +46,7 @@ wget [GATK Best Practices](https://github.com/broadinstitute/gatk/releases/downl
 `java -jar gatk-package-4.2.3.0-local.jar`
 
 
-## :file_folder: Downloading required data:
+## :file_folder: Downloading and organising required data:
 
 wget [wgs_calling_regions.hg38.interval_list](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/wgs_calling_regions.hg38.interval_list?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
 
@@ -52,7 +62,17 @@ wget [Homo_sapiens_assembly38.dict](https://console.cloud.google.com/storage/bro
 
 wget [Homo_sapiens_assembly38.fasta](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.fasta?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
 
-## :mag_right: SNP calling from RNA-seq data:
+wgat 
+
+
+## :mag_right: Steps for SNP calling from RNA-seq data:
+
+* Mapping RNA-seq data to the reference using STAR 
+
+Install JAVA, and Cromwell
+Build Docker images for Trimmomatic, fastQC and Kallisto
+For running Kallisto.wdl you also need to build an index from a FASTA formatted file of target sequences using Kallisto and name it under gencode.idx.
+Run the workflow directly by executing the following commands on your terminal:
 
 * Preprocessing measures using picard-tools
 
