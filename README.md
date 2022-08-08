@@ -70,23 +70,23 @@ wget [Homo_sapiens_assembly38.fasta](https://console.cloud.google.com/storage/br
 
 `java -Xmx32G -jar picard.jar MarkDuplicates INPUT=${sample}_AddReplaceGroup.bam OUTPUT=${sample}_markduplicate.bam CREATE_INDEX=true VALIDATION_STRINGENCY=SILENT METRICS_FILE=${sample}.metrics`
 
-### SplitNCigarReads
+### [SplitNCigarReads-GATK](https://gatk.broadinstitute.org/hc/en-us/articles/360036858811-SplitNCigarReads)
 
 `gatk-4.2.3.0/gatk SplitNCigarReads -R ../References/GRCh38.primary_assembly.genome.fa -I ${sample}_markduplicate.bam -O ${sample}_SplitNCigar.bam`
 
-### BaseRecalibrator
+### [BaseRecalibrator-GATK](https://gatk.broadinstitute.org/hc/en-us/articles/360036898312-BaseRecalibrator)
 
 `gatk-4.2.3.0/gatk BaseRecalibrator -R ../References/GRCh38.primary_assembly.genome.fa -I ${sample}_SplitNCigar.bam --use-original-qualities -O ${sample}_recalibration_report --known-sites ../References/Homo_sapiens_assembly38.dbsnp138.vcf --known-sites ../References/Homo_sapiens_assembly38.known_indels.vcf.gz`
 
-### ApplyBQSR
+### [ApplyBQSR-GATK](https://gatk.broadinstitute.org/hc/en-us/articles/360037055712-ApplyBQSR)
 
 `gatk-4.2.3.0/gatk ApplyBQSR --add-output-sam-program-record -R ../References/GRCh38.primary_assembly.genome.fa -I ${sample}_SplitNCigar.bam --use-original-qualities -O ${sample}_BQSR.bam --bqsr-recal-file ${sample}_recalibration_report`
 
-### SplitIntervals
+### [SplitIntervals-GATK](https://gatk.broadinstitute.org/hc/en-us/articles/360036899592-SplitIntervals)
 
 `gatk-4.2.3.0/gatk SplitIntervals -R ../References/GRCh38.primary_assembly.genome.fa -L ../References/wgs_calling_regions.hg38.interval_list -scatter 10  -O ./interval-files --subdivision-mode BALANCING_WITHOUT_INTERVAL_SUBDIVISION_WITH_OVERFLOW --java-options '-DGATK_STACKTRACE_ON_USER_EXCEPTION=true'`
 
-### HaplotypeCaller
+### [HaplotypeCaller-GATK](https://gatk.broadinstitute.org/hc/en-us/articles/360037225632-HaplotypeCaller)
 
 `gatk-4.2.3.0/gatk HaplotypeCaller -R ../References/GRCh38.primary_assembly.genome.fa -I ${sample}_BQSR.bam -L 0000-scattered.interval_list -L 0001 scattered.interval_list -L 0002-scattered.interval_list -L 0003-scattered.interval_list -L 0004-scattered.interval_list -L 0005-scattered.interval_list -L 0006 scattered.interval_list -L 0007-scattered.interval_list -L 0008-scattered.interval_list -L 0009-scattered.interval_list -O ${sample}.vcf.gz -dont-use-soft-clipped-bases -stand-call-conf 20 --dbsnp ../References/Homo_sapiens_assembly38.dbsnp138.vcf --java-options '-DGATK_STACKTRACE_ON_USER_EXCEPTION=true'`
  
