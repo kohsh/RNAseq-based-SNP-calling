@@ -10,7 +10,7 @@
 
 * picard installation
 
-wget [picard.jar](https://github.com/broadinstitute/picard/archive/refs/tags/2.27.4.tar.gz)
+wget [picard.jar](https://github.com/broadinstitute/picard/releases/download/2.27.4/picard.jar)
 
 `java -jar /path/to/picard.jar -h`
 
@@ -27,7 +27,13 @@ wget [bcftools](https://github.com/samtools/bcftools/releases/download/1.9/bcfto
 
 * gatk-4.2.3.0 installation
 
-wget [GATK Best Practices](https://github.com/broadinstitute/gatk/releases/download/4.2.6.1/gatk-4.2.6.1.zip)
+wget [GATK Best Practices](https://github.com/broadinstitute/gatk/releases/download/4.2.3.0/gatk-4.2.3.0.zip)
+
+`unzip gatk-4.2.3.0.zip`
+
+`cd  gatk-4.2.3.0`
+    
+`java -jar gatk-package-4.2.3.0-local.jar`
 
 
 java -jar picard.jar BuildBamIndex I=${sample}_1.fastq.gzAligned.sortedByCoord.out.bam 
