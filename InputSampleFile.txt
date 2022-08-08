@@ -1,0 +1,5 @@
+SRR2015713_1.fastq.gz	SRR2015713_2.fastq.gz
+SRR2015714_1.fastq.gz	SRR2015714_2.fastq.gz
+SRR2015715_1.fastq.gz	SRR2015715_2.fastq.gz
+SRR2015716_1.fastq.gz	SRR2015716_2.fastq.gz
+SRR2015717_1.fastq.gz	SRR2015717_2.fastq.gz
