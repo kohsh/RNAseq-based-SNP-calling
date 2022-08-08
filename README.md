@@ -10,7 +10,7 @@
 
 * bcftools installation
 
-wget [bcftools] (https://github.com/samtools/bcftools/releases/download/1.9/bcftools-1.9.tar.bz2)
+wget [bcftools](https://github.com/samtools/bcftools/releases/download/1.9/bcftools-1.9.tar.bz2)
 `tar -vxjf bcftools-1.9.tar.bz2`
 `cd bcftools-1.9`
 `make`
