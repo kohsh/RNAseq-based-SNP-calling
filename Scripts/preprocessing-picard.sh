@@ -1,4 +1,4 @@
-## Preprocessing measures using picard-tools
+### Preprocessing measures using picard-tools ###
 
 # 1a. BuildBamIndex-picard
 
