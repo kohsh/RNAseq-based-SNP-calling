@@ -1,6 +1,6 @@
 # :black_nib: RNA-seq-SNP-calling
 
-## ⚙️Technologies & Tools
+# ⚙️Technologies & Tools
 
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 ![Shell Script](https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
@@ -9,6 +9,7 @@
 ## Installatoion of associated packages:
 
 * bcftools installation
+
 wget [bcftools] (https://github.com/samtools/bcftools/releases/download/1.9/bcftools-1.9.tar.bz2)
 `tar -vxjf bcftools-1.9.tar.bz2`
 `cd bcftools-1.9`
