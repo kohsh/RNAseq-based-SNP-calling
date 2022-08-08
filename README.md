@@ -54,19 +54,19 @@ wget [Homo_sapiens_assembly38.fasta](https://console.cloud.google.com/storage/br
 
 # :mag_right: SNP calling from RNA-seq data
 
-### [BuildBamIndex-picard](https://gatk.broadinstitute.org/hc/en-us/articles/360037057932-BuildBamIndex-Picard-)
+### 1. [BuildBamIndex-picard](https://gatk.broadinstitute.org/hc/en-us/articles/360037057932-BuildBamIndex-Picard-)
 
 `java -jar picard.jar BuildBamIndex I=${sample}_1.fastq.gzAligned.sortedByCoord.out.bam`
 
-### [ReorderSam-picard](https://gatk.broadinstitute.org/hc/en-us/articles/360037426651-ReorderSam-Picard-)
+### 2. [ReorderSam-picard](https://gatk.broadinstitute.org/hc/en-us/articles/360037426651-ReorderSam-Picard-)
 
 `java -jar picard.jar ReorderSam INPUT=${sample}.fastq.gzAligned.sortedByCoord.out.bam OUTPUT=${sample}_reordered.bam SEQUENCE_DICTIONARY=/media/boris/kosar/Analysis/STAR/References/GRCh38.primary_assembly.genome.dict CREATE_INDEX=true`
 
-### [AddOrReplaceReadGroups-picard](https://gatk.broadinstitute.org/hc/en-us/articles/360037226472-AddOrReplaceReadGroups-Picard-)
+### 3. [AddOrReplaceReadGroups-picard](https://gatk.broadinstitute.org/hc/en-us/articles/360037226472-AddOrReplaceReadGroups-Picard-)
 
 `java -jar picard.jar AddOrReplaceReadGroups INPUT=${sample}_reordered.bam OUTPUT=${sample}_AddReplaceGroup.bam SORT_ORDER=coordinate CREATE_INDEX=true RGID=${sample} RGSM=${sample} RGLB=Fragment RGPL=platform RGCN=center RGPU=${sample}`
 
-### [MarkDuplicates-picard](https://gatk.broadinstitute.org/hc/en-us/articles/360037052812-MarkDuplicates-Picard-#:~:text=MarkDuplicates%20(Picard)%20Follow,e.g.%20library%20construction%20using%20PCR.)
+### 4. [MarkDuplicates-picard](https://gatk.broadinstitute.org/hc/en-us/articles/360037052812-MarkDuplicates-Picard-#:~:text=MarkDuplicates%20(Picard)%20Follow,e.g.%20library%20construction%20using%20PCR.)
 
 `java -Xmx32G -jar picard.jar MarkDuplicates INPUT=${sample}_AddReplaceGroup.bam OUTPUT=${sample}_markduplicate.bam CREATE_INDEX=true VALIDATION_STRINGENCY=SILENT METRICS_FILE=${sample}.metrics`
 
