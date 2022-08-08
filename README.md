@@ -67,7 +67,9 @@ wget [Homo_sapiens_assembly38.fasta](https://console.cloud.google.com/storage/br
 
 * Mapping RNA-seq data to the reference using STAR 
 
-In this resaerch, the STAR pipeline was written in [Workflow Description Language (WDL)](https://github.com/openwdl/wdl). Scripts are prowided for those who are ineterested. 
+In this resaerch, the STAR pipeline was written in [Workflow Description Language (WDL)](https://github.com/openwdl/wdl). Please use the following command to run the scripts provided.
+
+`/usr/bin/java -Dconfig.file=application.conf -jar cromwell-55.jar run paired-star-align.wdl -i paired-star-align.json`
 
 * Preprocessing measures using picard-tools
 
