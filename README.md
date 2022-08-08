@@ -1,4 +1,4 @@
-# RNA-seq-SNP-calling
+# :black_nib: RNA-seq-SNP-calling
 
 java -jar picard.jar BuildBamIndex I=${sample}_1.fastq.gzAligned.sortedByCoord.out.bam 
 
