@@ -54,7 +54,7 @@ wget [GATK Best Practices](https://github.com/broadinstitute/gatk/releases/downl
 
 `gatk-4.2.3.0/gatk ApplyBQSR --add-output-sam-program-record -R ../References/GRCh38.primary_assembly.genome.fa -I ${sample}_SplitNCigar.bam --use-original-qualities -O ${sample}_BQSR.bam --bqsr-recal-file ${sample}_recalibration_report`
 
-`gatk-4.2.3.0/gatk SplitIntervals -R ../References/GRCh38.primary_assembly.genome.fa -L ../References/wgs_calling_regions.hg38.interval_list -scatter 10  -O ./interval-files --subdivision-mode BALANCING_WITHOUT_INTERVAL_SUBDIVISION_WITH_OVERFLOW --java-options '-DGATK_STACKTRACE_ON_USER_EXCEPTION=true'
+`gatk-4.2.3.0/gatk SplitIntervals -R ../References/GRCh38.primary_assembly.genome.fa -L ../References/wgs_calling_regions.hg38.interval_list -scatter 10  -O ./interval-files --subdivision-mode BALANCING_WITHOUT_INTERVAL_SUBDIVISION_WITH_OVERFLOW --java-options '-DGATK_STACKTRACE_ON_USER_EXCEPTION=true'`
 
 `gatk-4.2.3.0/gatk HaplotypeCaller -R ../References/GRCh38.primary_assembly.genome.fa -I ${sample}_BQSR.bam -L 0000-scattered.interval_list -L 0001 scattered.interval_list -L 0002-scattered.interval_list -L 0003-scattered.interval_list -L 0004-scattered.interval_list -L 0005-scattered.interval_list -L 0006 scattered.interval_list -L 0007-scattered.interval_list -L 0008-scattered.interval_list -L 0009-scattered.interval_list -O ${sample}.vcf.gz -dont-use-soft-clipped-bases -stand-call-conf 20 --dbsnp ../References/Homo_sapiens_assembly38.dbsnp138.vcf --java-options '-DGATK_STACKTRACE_ON_USER_EXCEPTION=true'`
  
