@@ -6,6 +6,17 @@
 ![Shell Script](https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 
+## Installatoion of associated packages:
+
+* bcftools installation
+wget [bcftools] (https://github.com/samtools/bcftools/releases/download/1.9/bcftools-1.9.tar.bz2)
+`tar -vxjf bcftools-1.9.tar.bz2`
+`cd bcftools-1.9`
+`make`
+
+* gatk-4.2.3.0 installation
+
+
 java -jar picard.jar BuildBamIndex I=${sample}_1.fastq.gzAligned.sortedByCoord.out.bam 
 
 java -jar picard.jar ReorderSam INPUT=${sample}.fastq.gzAligned.sortedByCoord.out.bam OUTPUT=${sample}_reordered.bam SEQUENCE_DICTIONARY=/media/boris/kosar/Analysis/STAR/References/GRCh38.primary_assembly.genome.dict CREATE_INDEX=true
