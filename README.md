@@ -25,16 +25,6 @@ wget [picard.jar](https://github.com/broadinstitute/picard/releases/download/2.2
 
 `java -jar /path/to/picard.jar -h`
 
-* bcftools installation
-
-wget [bcftools](https://github.com/samtools/bcftools/releases/download/1.9/bcftools-1.9.tar.bz2)
-
-`tar -vxjf bcftools-1.9.tar.bz2`
-
-`cd bcftools-1.9`
-
-`make`
-
 * gatk-4.2.3.0 installation
 
 wget [GATK Best Practices](https://github.com/broadinstitute/gatk/releases/download/4.2.3.0/gatk-4.2.3.0.zip)
@@ -45,8 +35,19 @@ wget [GATK Best Practices](https://github.com/broadinstitute/gatk/releases/downl
     
 `java -jar gatk-package-4.2.3.0-local.jar`
 
+* bcftools installation
+
+wget [bcftools](https://github.com/samtools/bcftools/releases/download/1.9/bcftools-1.9.tar.bz2)
+
+`tar -vxjf bcftools-1.9.tar.bz2`
+
+`cd bcftools-1.9`
+
+`make`
 
 ## :file_folder: Downloading and organising required data:
+
+wget [gene-annotation](https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_31/gencode.v31.annotation.gtf.gz)
 
 wget [wgs_calling_regions.hg38.interval_list](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/wgs_calling_regions.hg38.interval_list?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
 
@@ -61,9 +62,6 @@ wget [Homo_sapiens_assembly38.dbsnp138.vcf.idx](https://console.cloud.google.com
 wget [Homo_sapiens_assembly38.dict](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.dict?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
 
 wget [Homo_sapiens_assembly38.fasta](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.fasta?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
-
-wgat 
-
 
 ## :mag_right: Steps for SNP calling from RNA-seq data:
 
