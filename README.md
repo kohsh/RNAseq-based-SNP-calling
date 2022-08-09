@@ -25,9 +25,7 @@ b. [Cromwell](https://github.com/broadinstitute/cromwell/releases)
 
 c. [Java](https://github.com/topics/java)
 
-d. [Gencode-Annotation-File](https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_31/gencode.v31.annotation.gtf.gz)
-
-:heavy_exclamation_mark: For running paired-star-align.wdl you also need to build an **index** from a GTF formatted file of target sequences using [STAR](https://github.com/alexdobin/STAR) and save them in a seprated folder. 
+:heavy_exclamation_mark: For running paired-star-align.wdl you also need to build an **index** from [Gencode-Annotation-File](https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_31/gencode.v31.annotation.gtf.gz) using [STAR](https://github.com/alexdobin/STAR) and save them in a seprated folder. 
 
 * Run the workflow directly by executing the following commands on your terminal:
 
