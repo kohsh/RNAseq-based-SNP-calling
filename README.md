@@ -56,6 +56,7 @@ wget [bcftools](https://github.com/samtools/bcftools/releases/download/1.9/bcfto
 wget [gencode.v31.annotation.gtf.gz](https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_31/gencode.v31.annotation.gtf.gz)
 
 * Required for pre-processing step using picard-tools
+
 wget [Homo_sapiens_assembly38.dict](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.dict?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
 
 * Required for variant calling step using GATK Best-Practice pipeline
