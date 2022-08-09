@@ -33,7 +33,7 @@ c. [Java](https://github.com/topics/java)
 
 ### 2. Pre-processing measures using picard-tools
 
-Use the Pre-processing-picard.sh pipeline for this step.
+Use the **Pre-processing-picard.sh** pipeline for this step.
 
 * **Required tools**
 
@@ -47,7 +47,7 @@ b. [Homo_sapiens_assembly38.dict](https://console.cloud.google.com/storage/brows
 
 ### 3. Variant calling steps using GATK Best-Practice pipeline
 
-Use the Variant-calling-GATK.sh pipeline for this step.
+Use the **Variant-calling-GATK.sh** pipeline for this step.
 
 * **Required tools**
 
@@ -71,7 +71,7 @@ g. [wgs_calling_regions.hg38.interval_list](https://console.cloud.google.com/sto
 
 ### 4. Merge VCFs &  Filteration
 
-Use the VCFs-merge-filter.sh pipeline for this step.
+Use the **VCFs-merge-filter.sh** pipeline for this step.
 
 * **Required tools**
 
