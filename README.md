@@ -17,7 +17,7 @@
 
 In this resaerch, the STAR pipeline was written in [Workflow Description Language (WDL)](https://github.com/openwdl/wdl). 
 
-**Dependencies**
+* **Dependencies**
 
 a. [Docker](https://github.com/docker)
 
@@ -33,11 +33,11 @@ c. [Java](https://github.com/topics/java)
 
 ### 2. Pre-processing measures using picard-tools
 
-**Required tools**
+* **Required tools**
 
 a. [picard.jar](https://github.com/broadinstitute/picard/releases/download/2.27.4/picard.jar)
 
-**Required data**
+* **Required data**
 
 a. Bam files produced from STAR aligner
 
@@ -45,11 +45,11 @@ b. [Homo_sapiens_assembly38.dict](https://console.cloud.google.com/storage/brows
 
 ### 3. Variant calling steps using GATK Best-Practice pipeline
 
-**Required tools**
+* **Required tools**
 
 a. [GATK Best Practices](https://github.com/broadinstitute/gatk/releases/download/4.2.3.0/gatk-4.2.3.0.zip)
 
-**Required data**
+* **Required data**
 
 a. Output of the last step of pre-processing pipeline
 
@@ -71,13 +71,7 @@ g. [wgs_calling_regions.hg38.interval_list](https://console.cloud.google.com/sto
 
 a. [bcftools](https://github.com/samtools/bcftools/releases/download/1.9/bcftools-1.9.tar.bz2)
 
-`tar -vxjf bcftools-1.9.tar.bz2`
-
-`cd bcftools-1.9`
-
-`make`
-
-**Required data**
+* **Required data**
 
 
 ### 4. Filteration of called SNPs
