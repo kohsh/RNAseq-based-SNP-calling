@@ -9,7 +9,7 @@
 ![](https://img.shields.io/badge/STAR-2.7.9-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/picard-2.27.4-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/GATK-4.2.3.0-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
-![](https://img.shields.io/badge/bcftools-2.27.4-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
+![](https://img.shields.io/badge/bcftools-1.9-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 
 ## 🔗 Quick Start
 
