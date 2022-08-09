@@ -3,9 +3,8 @@
 # ⚙️Technologies & Tools
 
 ![GitHub](https://img.shields.io/badge/github-%23777BB4.svg?style=for-the-badge&logo=github&logoColor=white)
-![](https://img.shields.io/badge/OS-Linux-%23777BB4.style=flat&logo=<#FF6000>&logoColor=white&color=2bbc8a)
 [![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg)
-[![made-with-bash](https://img.shields.io/badge/Made%20with-Bash-1f425f.svg)](https://www.gnu.org/software/bash/)
+[![Shell](https://img.shields.io/badge/Made%20with-Bash-1f425f.svg)](https://www.gnu.org/software/bash/)
 ![](https://img.shields.io/badge/Shell-Bash-informational?style=flat&logo=<#FF6000>&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/Code-JavaScript-informational?style=flat&logo=<#FF6000>&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/Cromwell-v.55-informational?style=flat&logo=<#23777BB4#>&logoColor=white&color=2bbc8a)
