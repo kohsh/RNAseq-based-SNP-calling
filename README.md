@@ -21,7 +21,7 @@ In this resaerch, the STAR pipeline was written in [Workflow Description Languag
 
 a. [Docker](https://github.com/docker)
 
-b. [Cromwell](https://github.com/broadinstitute/cromwell/releases)
+b. [Cromwell](https://github.com/broadinstitute/cromwell)
 
 c. [Java](https://github.com/topics/java)
 
@@ -35,7 +35,7 @@ c. [Java](https://github.com/topics/java)
 
 * **Required tools**
 
-a. [picard.jar](https://github.com/broadinstitute/picard/releases/download/2.27.4/picard.jar)
+a. [picard.jar](https://github.com/broadinstitute/picard)
 
 * **Required data**
 
@@ -47,7 +47,7 @@ b. [Homo_sapiens_assembly38.dict](https://console.cloud.google.com/storage/brows
 
 * **Required tools**
 
-a. [GATK Best Practices](https://github.com/broadinstitute/gatk/releases/download/4.2.3.0/gatk-4.2.3.0.zip)
+a. [GATK Best Practices](https://github.com/broadinstitute/gatk)
 
 * **Required data**
 
@@ -69,7 +69,9 @@ g. [wgs_calling_regions.hg38.interval_list](https://console.cloud.google.com/sto
 
 * **Required tools**
 
-a. [bcftools](https://github.com/samtools/bcftools/releases/download/1.9/bcftools-1.9.tar.bz2)
+a. [bcftools](https://github.com/samtools/bcftools)
+
+b. [tabix](https://github.com/samtools/tabix)
 
 * **Required data**
 
