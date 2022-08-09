@@ -13,7 +13,7 @@
 ![](https://img.shields.io/badge/GATK-4.2.3.0-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/bcftools-2.27.4-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 
-## Installatoion of associated packages:
+## Installatoion of associated packages
 
 * STAR installation
 
@@ -51,7 +51,7 @@ wget [bcftools](https://github.com/samtools/bcftools/releases/download/1.9/bcfto
 
 `make`
 
-## :file_folder: Downloading and organising required data:
+## :file_folder: Downloading and organising required data
 
 wget [gencode.v31.annotation.gtf.gz](https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_31/gencode.v31.annotation.gtf.gz)
 
@@ -69,7 +69,7 @@ wget [Homo_sapiens_assembly38.dict](https://console.cloud.google.com/storage/bro
 
 wget [Homo_sapiens_assembly38.fasta](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.fasta?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
 
-## :mag_right: Steps for calling SNPs from RNA-seq data:
+## :mag_right: Steps for calling SNPs from RNA-seq data
 
 * Mapping RNA-seq data to the reference using STAR 
 
