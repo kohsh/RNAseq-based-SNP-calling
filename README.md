@@ -11,63 +11,11 @@
 ![](https://img.shields.io/badge/GATK-4.2.3.0-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/bcftools-2.27.4-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 
-## Installatoion of associated packages
-
-* STAR installation
-
-wget [star-2.7.9](https://github.com/alexdobin/STAR/archive/2.7.9a.tar.gz)
-
-`tar -xzf 2.7.9a.tar.gz`
-
-`cd STAR-2.7.9a/source`
-
-`make STAR`
-
-* picard installation
-
-wget [picard.jar](https://github.com/broadinstitute/picard/releases/download/2.27.4/picard.jar)
-
-`java -jar /path/to/picard.jar -h`
-
-* gatk-4.2.3.0 installation
-
-wget [GATK Best Practices](https://github.com/broadinstitute/gatk/releases/download/4.2.3.0/gatk-4.2.3.0.zip)
-
-`unzip gatk-4.2.3.0.zip`
-
-`cd  gatk-4.2.3.0`
-    
-`java -jar gatk-package-4.2.3.0-local.jar`
-
-* bcftools installation
-
-wget [bcftools](https://github.com/samtools/bcftools/releases/download/1.9/bcftools-1.9.tar.bz2)
-
-`tar -vxjf bcftools-1.9.tar.bz2`
-
-`cd bcftools-1.9`
-
-`make`
-
-## :file_folder: Downloading and organising required data
-
-* Gene annotation file required for STAR alignment
-
-
-
-* Required for pre-processing step using picard-tools
-
-
-
-* Required for variant calling step using GATK Best-Practice pipeline
-
-
-
 ## Steps for calling SNPs from RNA-seq data
 
 ### 🔗 Quick Start
 
-1. Mapping RNA-seq data to the reference using STAR 
+### 1. Mapping RNA-seq data to the reference using STAR 
 
 In this resaerch, the STAR pipeline was written in [Workflow Description Language (WDL)](https://github.com/openwdl/wdl). 
 
@@ -87,7 +35,7 @@ d. wget [gencode.v31.annotation.gtf.gz](https://ftp.ebi.ac.uk/pub/databases/genc
 
 `java -Dconfig.file=application.conf -jar cromwell-55.jar run paired-star-align.wdl -i paired-star-align.json`
 
-2. Pre-processing measures using picard-tools
+### 2. Pre-processing measures using picard-tools
 
 **Required tools**
 
@@ -101,7 +49,7 @@ a. Bam files produced from STAR aligner
 
 b. wget [Homo_sapiens_assembly38.dict](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.dict?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
 
-3. Variant calling steps using GATK Best-Practice pipeline
+### 3. Variant calling steps using GATK Best-Practice pipeline
 
 **Required tools**
 
@@ -129,7 +77,7 @@ f. wget [Homo_sapiens_assembly38.known_indels.indexed](https://console.cloud.goo
 
 g. wget [wgs_calling_regions.hg38.interval_list](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/wgs_calling_regions.hg38.interval_list?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
 
-4. Merge VCFs & Indexing
+### 4. Merge VCFs & Indexing
 
 **Required tools**
 
@@ -144,7 +92,7 @@ a. wget [bcftools](https://github.com/samtools/bcftools/releases/download/1.9/bc
 **Required data**
 
 
-4. Filteration of called SNPs
+### 4. Filteration of called SNPs
 
 
 
