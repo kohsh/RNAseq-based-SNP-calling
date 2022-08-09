@@ -53,25 +53,14 @@ wget [bcftools](https://github.com/samtools/bcftools/releases/download/1.9/bcfto
 
 * Gene annotation file required for STAR alignment
 
-wget [gencode.v31.annotation.gtf.gz](https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_31/gencode.v31.annotation.gtf.gz)
+
 
 * Required for pre-processing step using picard-tools
 
-wget [Homo_sapiens_assembly38.dict](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.dict?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
+
 
 * Required for variant calling step using GATK Best-Practice pipeline
 
-wget [Homo_sapiens_assembly38.fasta](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.fasta?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
-
-wget [Homo_sapiens_assembly38.dbsnp138](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.dbsnp138.vcf?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
-
-wget [Homo_sapiens_assembly38.dbsnp138.indexed](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.dbsnp138.vcf.idx?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
-
-wget [Homo_sapiens_assembly38.known-indels](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.known_indels.vcf.gz?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
-
-wget [Homo_sapiens_assembly38.known_indels.indexed](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.known_indels.vcf.gz.tbi?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
-
-wget [wgs_calling_regions.hg38.interval_list](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/wgs_calling_regions.hg38.interval_list?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
 
 
 ## Steps for calling SNPs from RNA-seq data
@@ -90,15 +79,70 @@ b. [Cromwell](https://github.com/broadinstitute/cromwell/releases)
 
 c. [Java](https://github.com/topics/java)
 
-:heavy_exclamation_mark: For running paired-star-align.wdl you also need to build an **index** from a GTF formatted file of target sequences using [STAR](https://github.com/alexdobin/STAR) and save them in s seprated folder. 
+d. wget [gencode.v31.annotation.gtf.gz](https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_31/gencode.v31.annotation.gtf.gz)
+
+:heavy_exclamation_mark: For running paired-star-align.wdl you also need to build an **index** from a GTF formatted file of target sequences using [STAR](https://github.com/alexdobin/STAR) and save them in a seprated folder. 
 
 * Run the workflow directly by executing the following commands on your terminal:
 
 `java -Dconfig.file=application.conf -jar cromwell-55.jar run paired-star-align.wdl -i paired-star-align.json`
 
-2. Preprocessing measures using picard-tools
+2. Pre-processing measures using picard-tools
 
-3. Merge VCFs & Indexing
+**Required tools**
+
+a. wget [picard.jar](https://github.com/broadinstitute/picard/releases/download/2.27.4/picard.jar)
+
+`java -jar /path/to/picard.jar -h`
+
+**Required data**
+
+a. Bam files produced from STAR aligner
+
+b. wget [Homo_sapiens_assembly38.dict](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.dict?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
+
+3. Variant calling steps using GATK Best-Practice pipeline
+
+**Required tools**
+
+wget [GATK Best Practices](https://github.com/broadinstitute/gatk/releases/download/4.2.3.0/gatk-4.2.3.0.zip)
+
+`unzip gatk-4.2.3.0.zip`
+
+`cd  gatk-4.2.3.0`
+    
+`java -jar gatk-package-4.2.3.0-local.jar`
+
+**Required data**
+
+a. Output of the last step of pre-processing pipeline
+
+b. wget [Homo_sapiens_assembly38.fasta](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.fasta?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
+
+c. wget [Homo_sapiens_assembly38.dbsnp138](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.dbsnp138.vcf?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
+
+d. wget [Homo_sapiens_assembly38.dbsnp138.indexed](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.dbsnp138.vcf.idx?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
+
+e. wget [Homo_sapiens_assembly38.known-indels](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.known_indels.vcf.gz?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
+
+f. wget [Homo_sapiens_assembly38.known_indels.indexed](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.known_indels.vcf.gz.tbi?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
+
+g. wget [wgs_calling_regions.hg38.interval_list](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/wgs_calling_regions.hg38.interval_list?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
+
+4. Merge VCFs & Indexing
+
+**Required tools**
+
+a. wget [bcftools](https://github.com/samtools/bcftools/releases/download/1.9/bcftools-1.9.tar.bz2)
+
+`tar -vxjf bcftools-1.9.tar.bz2`
+
+`cd bcftools-1.9`
+
+`make`
+
+**Required data**
+
 
 4. Filteration of called SNPs
 
