@@ -63,13 +63,13 @@ wget [Homo_sapiens_assembly38.dict](https://console.cloud.google.com/storage/bro
 
 wget [Homo_sapiens_assembly38.fasta](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.fasta?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
 
-wget [Homo_sapiens_assembly38.dbsnp138.vcf](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.dbsnp138.vcf?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
+wget [Homo_sapiens_assembly38.dbsnp138](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.dbsnp138.vcf?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
 
-wget [Homo_sapiens_assembly38.dbsnp138.vcf.idx](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.dbsnp138.vcf.idx?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
+wget [Homo_sapiens_assembly38.dbsnp138.indexed](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.dbsnp138.vcf.idx?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
 
-wget [Homo_sapiens_assembly38.known_indels.vcf.gz](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.known_indels.vcf.gz?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
+wget [Homo_sapiens_assembly38.known-indels](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.known_indels.vcf.gz?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
 
-wget [Homo_sapiens_assembly38.known_indels.vcf.gz.tbi](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.known_indels.vcf.gz.tbi?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
+wget [Homo_sapiens_assembly38.known_indels.indexed](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.known_indels.vcf.gz.tbi?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
 
 wget [wgs_calling_regions.hg38.interval_list](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/wgs_calling_regions.hg38.interval_list?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
 
@@ -82,11 +82,17 @@ wget [wgs_calling_regions.hg38.interval_list](https://console.cloud.google.com/s
 
 In this resaerch, the STAR pipeline was written in [Workflow Description Language (WDL)](https://github.com/openwdl/wdl). 
 
-**Dependencies
+**Dependencies**
 
-1-[Docker](https://github.com/docker)
-2-[Cromwell](https://github.com/broadinstitute/cromwell/releases)
-3-[Java](https://github.com/topics/java)
+a. [Docker](https://github.com/docker)
+
+b. [Cromwell](https://github.com/broadinstitute/cromwell/releases)
+
+c. [Java](https://github.com/topics/java)
+
+* For running paired-star-align.wdl you also need to build an **index** from a GTF formatted file of target sequences using [STAR](https://github.com/alexdobin/STAR) and save them in s seprated folder. 
+
+* Run the workflow directly by executing the following commands on your terminal:
 
 `java -Dconfig.file=application.conf -jar cromwell-55.jar run paired-star-align.wdl -i paired-star-align.json`
 
