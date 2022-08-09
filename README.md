@@ -5,7 +5,6 @@
 ![GitHub](https://img.shields.io/badge/github-%23777BB4.svg?style=for-the-badge&logo=github&logoColor=white)
 [![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg)
 [![Shell](https://img.shields.io/badge/Made%20with-Bash-1f425f.svg)](https://www.gnu.org/software/bash/)
-![](https://img.shields.io/badge/Shell-Bash-informational?style=flat&logo=<#FF6000>&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/Code-JavaScript-informational?style=flat&logo=<#FF6000>&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/Cromwell-v.55-informational?style=flat&logo=<#23777BB4#>&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/STAR-2.7.9-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
