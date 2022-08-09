@@ -75,19 +75,26 @@ wget [wgs_calling_regions.hg38.interval_list](https://console.cloud.google.com/s
 
 
 ## Steps for calling SNPs from RNA-seq data
+
 ### 🔗 Quick Start
 
-* Mapping RNA-seq data to the reference using STAR 
+1. Mapping RNA-seq data to the reference using STAR 
 
-In this resaerch, the STAR pipeline was written in [Workflow Description Language (WDL)](https://github.com/openwdl/wdl). Please use the following command to run the scripts provided.
+In this resaerch, the STAR pipeline was written in [Workflow Description Language (WDL)](https://github.com/openwdl/wdl). 
+
+**Dependencies
+
+1-[Docker](https://github.com/docker)
+2-[Cromwell](https://github.com/broadinstitute/cromwell/releases)
+3-[Java](https://github.com/topics/java)
 
 `java -Dconfig.file=application.conf -jar cromwell-55.jar run paired-star-align.wdl -i paired-star-align.json`
 
-* Preprocessing measures using picard-tools
+2. Preprocessing measures using picard-tools
 
-* Merge VCFs & Indexing
+3. Merge VCFs & Indexing
 
-* Filteration of called SNPs
+4. Filteration of called SNPs
 
 
 
