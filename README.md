@@ -67,7 +67,7 @@ g. [wgs_calling_regions.hg38.interval_list](https://console.cloud.google.com/sto
 
 ### 4. Merge VCFs & Indexing
 
-**Required tools**
+* **Required tools**
 
 a. [bcftools](https://github.com/samtools/bcftools/releases/download/1.9/bcftools-1.9.tar.bz2)
 
