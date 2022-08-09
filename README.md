@@ -1,5 +1,7 @@
 # :black_nib: RNAseq-SNP-calling
 
+Our Guthub repo include pipelines for large-scale SNP detection from RNA-seq data of different tissues per phenotype. Our pipeline mapped raw sequence reads against the genome using STAR aligner (2-pass method). Uniquely mapped reads were then pre-processed using GATK best practices pipeline for RNA-seq data. This was foloowed by variant detection processes, and vigorous filtering of false-positive calls.
+
 # ⚙️Technologies & Tools
 
 ![GitHub](https://img.shields.io/badge/github-%23777BB4.svg?style=for-the-badge&logo=github&logoColor=white)
