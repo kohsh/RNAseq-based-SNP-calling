@@ -11,9 +11,7 @@
 ![](https://img.shields.io/badge/GATK-4.2.3.0-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/bcftools-2.27.4-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 
-## Steps for calling SNPs from RNA-seq data
-
-### 🔗 Quick Start
+## 🔗 Quick Start
 
 ### 1. Mapping RNA-seq data to the reference using STAR 
 
