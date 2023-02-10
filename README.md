@@ -34,7 +34,9 @@ c. [Java](https://github.com/topics/java)
 
 * Run the workflow directly by executing the following commands on your terminal:
 
-`java -Dconfig.file=application.conf -jar cromwell-55.jar run paired-star-align.wdl -i paired-star-align.json`
+```bash
+java -Dconfig.file=application.conf -jar cromwell-55.jar run paired-star-align.wdl -i paired-star-align.json
+```
 
 ### 2. Pre-processing measures using picard-tools
 
